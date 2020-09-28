@@ -57,6 +57,8 @@ internal class AndesTagViewConfigFactory {
 
         let rightButtonWidth: CGFloat = rightButtonImageName != nil ? size.rightButtonWidth : 0
 
-        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, rightButtonImageName: rightButtonImageName, rightButtonWidth: rightButtonWidth)
+        let shouldAnimateRightContent: Bool = tag.shouldAnimateTag
+
+        return AndesTagViewConfig(backgroundColor: backgroundColor, borderColor: borderColor, buttonColor: buttonColor, height: height, horizontalPadding: horizontalPadding, cornerRadius: cornerRadius, text: text, textFont: textFont, textColor: textColor, leftContent: leftContent, rightButtonImageName: rightButtonImageName, rightButtonWidth: rightButtonWidth, shouldAnimateRightContent: shouldAnimateRightContent)
     }
 }

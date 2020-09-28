@@ -29,9 +29,6 @@ import Foundation
     @objc public var state: AndesTagState = .idle {
         didSet {
             self.updateContentView()
-            UIView.animate(withDuration: 0.3) {
-                self.layoutIfNeeded()
-            }
         }
     }
 
@@ -48,6 +45,9 @@ import Foundation
             self.updateContentView()
         }
     }
+
+    /// Set if the view has to animate when tag was selected. Default value `false`
+    @objc public var shouldAnimateTag: Bool = false
 
     /// Callback invoked when tag is tapped
     internal var shouldSelectTag: (() -> Bool)?
@@ -120,7 +120,6 @@ import Foundation
     /// Should return a view depending on which Badge modifier is selected
     private func provideView() -> AndesTagView {
         let config = AndesTagViewConfigFactory.provideInternalConfig(fromChoiceTag: self)
-
         return AndesTagView(withConfig: config)
     }
 

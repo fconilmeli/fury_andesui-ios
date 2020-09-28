@@ -44,6 +44,11 @@ class AndesTagView: AndesTagAbstractView {
             self.trailingConstraint.constant = config.horizontalPadding ?? 0
         }
         self.rightButtonWidthConstraint.constant = self.config.rightButtonWidth
+        if config.shouldAnimateRightContent {
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            }
+        }
     }
 
     func updateLeftContentView() {

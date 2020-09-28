@@ -67,10 +67,12 @@
     rightTags.spacing = 6.0;
 
     [self addSimpleTagsWithLeftContentToStack:rightTags];
-    
+    [self addChoiceSimpleTagsWithSize:AndesTagSizeLarge toStack:rightTags];
+
     [tagsStack addArrangedSubview:leftTags];
     [tagsStack addArrangedSubview:rightTags];
     [_stackView addArrangedSubview:tagsStack];
+
 }
 
 - (void)addSimpleTagsWithSize:(AndesTagSize)size toStack:(UIStackView *)stackView
@@ -136,5 +138,21 @@
     AndesTagSimple *leftContentImageAvatarTag = [[AndesTagSimple alloc] initWithText:@"Tag con icono" size:AndesTagSizeLarge type:AndesTagTypeNeutral isDismissible:YES leftContent:leftContentImageAvatar];
     [stackView addArrangedSubview:leftContentImageAvatarTag];
 }
+
+- (void)addChoiceSimpleTagsWithSize:(AndesTagSize)size toStack:(UIStackView *)stackView
+{
+    AndesTagChoice *simpleTag = [[AndesTagChoice alloc] initWithText:@"Choice Simple" size:size type:AndesTagChoiceTypeSimple state:AndesTagStateIdle];
+    [stackView addArrangedSubview:simpleTag];
+    AndesTagChoice *selectedTag = [[AndesTagChoice alloc] initWithText:@"Choice Simple selected" size:size type:AndesTagChoiceTypeSimple state:AndesTagStateSelected];
+    [stackView addArrangedSubview:selectedTag];
+    
+    AndesTagChoice *dropdownTag = [[AndesTagChoice alloc] initWithText:@"Choice dropdown" size:size type: AndesTagChoiceTypeDropdown state:AndesTagStateIdle];
+    [stackView addArrangedSubview:dropdownTag];
+    
+    AndesTagChoice *dropdownTagSelected = [[AndesTagChoice alloc] initWithText:@"Choice dropdown selected" size:size type: AndesTagChoiceTypeDropdown state:AndesTagStateSelected];
+    [stackView addArrangedSubview:dropdownTagSelected];
+    
+}
+
 
 @end

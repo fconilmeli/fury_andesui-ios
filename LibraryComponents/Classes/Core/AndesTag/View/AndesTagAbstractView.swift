@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AndesTagAbstractView: UIView, AndesTagView {
+class AndesTagAbstractView: UIView, AndesTagViewProtocol {
 
     weak var delegate: AndesTagViewDelegate?
 
@@ -28,7 +28,7 @@ class AndesTagAbstractView: UIView, AndesTagView {
     }
 
     required init?(coder: NSCoder) {
-        config = AndesTagViewConfig()
+        self.config = AndesTagViewConfig()
         super.init(coder: coder)
         setup()
     }
@@ -52,11 +52,12 @@ class AndesTagAbstractView: UIView, AndesTagView {
     }
 
     func setup() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        addGestureRecognizer(tap)
         loadNib()
         translatesAutoresizingMaskIntoConstraints = false
         pinXibViewToSelf()
         updateView()
-
         self.clipsToBounds = true
         tagView.clipsToBounds = true
     }
@@ -70,4 +71,7 @@ class AndesTagAbstractView: UIView, AndesTagView {
         fatalError("This should be overriden by a subclass")
     }
 
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        fatalError("This should be overriden by a subclass")
+    }
 }

@@ -18,7 +18,7 @@ class AndesTagSimpleTests: QuickSpec {
                 it("Has the right view type") {
                     let tag = AndesTagSimple(text: "Andes Tag", size: .large, type: .neutral, isDismissible: false)
 
-                    expect(tag.contentView.isKind(of: AndesTagSimpleView.self)).to(beTrue())
+                    expect(tag.contentView.isKind(of: AndesTagView.self)).to(beTrue())
                 }
             }
 

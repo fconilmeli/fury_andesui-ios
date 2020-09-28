@@ -9,13 +9,13 @@ import Foundation
 
 struct AndesTagStateIdle: AndesTagStateProtocol {
 
-    var textColor: UIColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.80)
+    var textColor: UIColor = UIColor.Andes.gray800
 
-    var borderColor: UIColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.25)
+    var borderColor: UIColor = UIColor.Andes.gray250
 
-    var buttonColor: UIColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.25)
+    var buttonColor: UIColor = UIColor.Andes.gray450
 
-    var backgroundColor: UIColor = UIColor.white
+    var backgroundColor: UIColor = UIColor.clear
 
     var rightButtonImageName: String?
 

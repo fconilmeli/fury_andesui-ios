@@ -8,5 +8,5 @@
 import Foundation
 
 struct AndesTagChoiceTypeDropDown: AndesTagChoiceTypeProtocol {
-    var rightButtonImageName: String? = "andes_ui_chevron_down_16"
+    var rightButtonImageName: String? = AndesIcons.chevronDown16
 }

@@ -25,12 +25,17 @@ import Foundation
         }
     }
 
+    /// State indicates different color styles for different semantic pruposes
     @objc public var state: AndesTagState = .idle {
         didSet {
             self.updateContentView()
+            UIView.animate(withDuration: 0.3) {
+                self.layoutIfNeeded()
+            }
         }
     }
 
+    /// Type indicates different tags type for different semantic pruposes
     @objc public var type: AndesTagChoiceType = .simple {
         didSet {
             self.updateContentView()
@@ -44,7 +49,7 @@ import Foundation
         }
     }
 
-    /// Callback invoked when dismiss button is tapped
+    /// Callback invoked when tag is tapped
     internal var shouldSelectTag: (() -> Bool)?
 
     public required init?(coder: NSCoder) {
@@ -76,8 +81,8 @@ import Foundation
         setup()
     }
 
-    /// Set dismiss callback to be invoked when dismiss button is pressed
-    @objc public func setSelectTag(callback: @escaping (() -> Bool)) {
+    /// Set callback to be invoked when tag is pressed
+    @objc public func shouldSelectTag(callback: @escaping (() -> Bool)) {
         self.shouldSelectTag = callback
     }
 
@@ -118,16 +123,31 @@ import Foundation
 
         return AndesTagView(withConfig: config)
     }
+
+    /// Check `shouldSelectTag` callback to change state if needed
+    private func checkForSelection() {
+        guard let callback = self.shouldSelectTag else { return }
+        let result = callback()
+        guard result else { return }
+        changeState()
+    }
+
+    /// Change tag state to `selected` or `idle`
+    private func changeState() {
+        if case .selected = self.state {
+            self.state = .idle
+        } else {
+            self.state = .selected
+        }
+    }
 }
 
 extension AndesTagChoice: AndesTagViewDelegate {
-    func didTapDismiss() {
-        // Do nothing
+    func didTapTagRightButton() {
+        checkForSelection()
     }
 
-    func didTap(view: UIView) {
-        guard let callback = self.shouldSelectTag else { return }
-        let result = callback()
-        // TODO: Handle callback
+    func didTapTagView() {
+        checkForSelection()
     }
 }

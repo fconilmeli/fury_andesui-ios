@@ -123,14 +123,14 @@ import Foundation
 }
 
 extension AndesTagSimple: AndesTagViewDelegate {
-    func didTapDismiss() {
+    func didTapTagRightButton() {
         guard let callback = self.didDismiss else {
             return
         }
         callback(self)
     }
 
-    func didTap(view: UIView) {
+    func didTapTagView() {
         // Do nothing
     }
 }

@@ -9,14 +9,14 @@ import Foundation
 
 struct AndesTagStateSelected: AndesTagStateProtocol {
 
-    var textColor: UIColor = UIColor(red: 0.16, green: 0.41, blue: 0.78, alpha: 1.00)
+    var textColor: UIColor = UIColor.Andes.blueMP600
 
-    var borderColor: UIColor = UIColor(red: 0.16, green: 0.41, blue: 0.78, alpha: 1.00)
+    var borderColor: UIColor = UIColor.Andes.blueMP600
 
-    var buttonColor: UIColor = UIColor(red: 0.16, green: 0.41, blue: 0.78, alpha: 1.00)
+    var buttonColor: UIColor = UIColor.Andes.blueMP600
 
-    var backgroundColor: UIColor = UIColor(red: 0.20, green: 0.51, blue: 0.98, alpha: 0.10)
+    var backgroundColor: UIColor = UIColor.Andes.blueMP100
 
-    var rightButtonImageName: String? = "andes_ui_check"
+    var rightButtonImageName: String? = AndesIcons.checkboxSelected16
 
 }

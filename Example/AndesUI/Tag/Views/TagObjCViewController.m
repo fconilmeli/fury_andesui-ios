@@ -144,13 +144,16 @@
     AndesTagChoice *simpleTag = [[AndesTagChoice alloc] initWithText:@"Choice Simple" size:size type:AndesTagChoiceTypeSimple state:AndesTagStateIdle];
     [stackView addArrangedSubview:simpleTag];
     AndesTagChoice *selectedTag = [[AndesTagChoice alloc] initWithText:@"Choice Simple selected" size:size type:AndesTagChoiceTypeSimple state:AndesTagStateSelected];
+    [selectedTag shouldSelectTagWithCallback:^BOOL{
+        return YES;
+    }];
     [stackView addArrangedSubview:selectedTag];
     
-    AndesTagChoice *dropdownTag = [[AndesTagChoice alloc] initWithText:@"Choice dropdown" size:size type: AndesTagChoiceTypeDropdown state:AndesTagStateIdle];
+    AndesTagChoice *dropdownTag = [[AndesTagChoice alloc] initWithText:@"Choice dropdown" size:size type: AndesTagChoiceTypeDropdown state:AndesTagStateSelected];
+    [dropdownTag shouldSelectTagWithCallback:^BOOL{
+           return YES;
+    }];
     [stackView addArrangedSubview:dropdownTag];
-    
-    AndesTagChoice *dropdownTagSelected = [[AndesTagChoice alloc] initWithText:@"Choice dropdown selected" size:size type: AndesTagChoiceTypeDropdown state:AndesTagStateSelected];
-    [stackView addArrangedSubview:dropdownTagSelected];
     
 }
 

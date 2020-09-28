@@ -67,10 +67,10 @@ class AndesTagView: AndesTagAbstractView {
     }
 
     override func rightButtonTapped(_ sender: Any) {
-        self.delegate?.didTapDismiss()
+        self.delegate?.didTapTagRightButton()
     }
 
     override func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        self.delegate?.didTap(view: self)
+        self.delegate?.didTapTagView()
     }
 }

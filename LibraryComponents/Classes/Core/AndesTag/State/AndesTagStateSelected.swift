@@ -17,6 +17,6 @@ struct AndesTagStateSelected: AndesTagStateProtocol {
 
     var backgroundColor: UIColor = UIColor.Andes.blueMP100
 
-    var rightButtonImageName: String? = AndesIcons.checkboxSelected16
+    var rightButtonImageName: String? = AndesIcons.feedbackSuccess16
 
 }

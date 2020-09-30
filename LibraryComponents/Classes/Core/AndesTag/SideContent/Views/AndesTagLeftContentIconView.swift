@@ -33,6 +33,7 @@ class AndesTagLeftContentIconView: UIView {
             return
         }
         let imageView = UIImageView(image: icon)
+        imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = iconColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true

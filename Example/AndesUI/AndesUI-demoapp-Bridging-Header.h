@@ -8,6 +8,7 @@
 #import "TextFieldObjCViewController.h"
 #import "BadgeObjCViewController.h"
 #import "TagObjCViewController.h"
+#import "TagChoiceObjCViewController.h"
 #import "CheckboxObjCViewController.h"
 #import "SnackbarObjCViewController.h"
 #import "RadioButtonObjCViewController.h"

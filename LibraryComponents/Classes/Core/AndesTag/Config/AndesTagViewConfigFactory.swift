@@ -51,7 +51,12 @@ internal class AndesTagViewConfigFactory {
         let textFont = size.font
         let textColor = state.textColor
 
-        let leftContent = size.shouldShowLeftContent ? tag.leftContent : nil
+        var leftContent = size.shouldShowLeftContent ? tag.leftContent : nil
+
+        if let leftContentIcon = leftContent as? AndesTagLeftContentIcon {
+            leftContentIcon.iconColor = state.buttonColor
+            leftContent = leftContentIcon
+        }
 
         let rightButtonImageName = type.rightButtonImageName
 

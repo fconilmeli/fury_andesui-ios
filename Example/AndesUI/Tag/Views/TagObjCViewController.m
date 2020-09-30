@@ -67,7 +67,6 @@
     rightTags.spacing = 6.0;
 
     [self addSimpleTagsWithLeftContentToStack:rightTags];
-    [self addChoiceSimpleTagsWithSize:AndesTagSizeLarge toStack:rightTags];
 
     [tagsStack addArrangedSubview:leftTags];
     [tagsStack addArrangedSubview:rightTags];
@@ -138,39 +137,5 @@
     AndesTagSimple *leftContentImageAvatarTag = [[AndesTagSimple alloc] initWithText:@"Tag con icono" size:AndesTagSizeLarge type:AndesTagTypeNeutral isDismissible:YES leftContent:leftContentImageAvatar];
     [stackView addArrangedSubview:leftContentImageAvatarTag];
 }
-
-- (void)addChoiceSimpleTagsWithSize:(AndesTagSize)size toStack:(UIStackView *)stackView
-{
-    AndesTagChoice *simpleTag = [[AndesTagChoice alloc] initWithText:@"Choice Simple" size:size type:AndesTagChoiceTypeSimple state:AndesTagStateIdle];
-    [stackView addArrangedSubview:simpleTag];
-    AndesTagChoice *selectedTag = [[AndesTagChoice alloc] initWithText:@"Choice Simple selected" size:size type:AndesTagChoiceTypeSimple state:AndesTagStateSelected];
-    [selectedTag shouldSelectTagWithCallback:^BOOL{
-        return YES;
-    }];
-    selectedTag.shouldAnimateTag = YES;
-    [stackView addArrangedSubview:selectedTag];
-    
-    AndesTagChoice *dropdownTag = [[AndesTagChoice alloc] initWithText:@"Choice dropdown" size:size type: AndesTagChoiceTypeDropdown state:AndesTagStateSelected];
-    [dropdownTag shouldSelectTagWithCallback:^BOOL{
-           return YES;
-    }];
-    [stackView addArrangedSubview:dropdownTag];
-    
-    AndesTagLeftContentDot *leftContentAccentDotText = [[AndesTagLeftContentDot alloc] initWithBackgroundColor:AndesStyleSheetManager.styleSheet.accentColor text:@"CF" textColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1]];
-    
-    AndesTagChoice *textAccentTag = [[AndesTagChoice alloc] initWithText:@"Camila Farias" size:AndesTagSizeLarge type:AndesTagChoiceTypeSimple state:AndesTagStateSelected leftContent:leftContentAccentDotText];
-    [textAccentTag shouldSelectTagWithCallback:^BOOL{
-        return YES;
-    }];
-    textAccentTag.shouldAnimateTag = YES;
-    [stackView addArrangedSubview:textAccentTag];
-    
-    AndesTagLeftContentIcon *leftContentIconCheck = [[AndesTagLeftContentIcon alloc] initWithBackgroundColor:UIColor.clearColor andesIconName:@"andes_ui_feedback_success_24" iconColor:UIColor.whiteColor];
-    AndesTagChoice *textAccentTag1 = [[AndesTagChoice alloc] initWithText:@"Con icono" size:AndesTagSizeLarge type:AndesTagChoiceTypeSimple state:AndesTagStateSelected leftContent:leftContentIconCheck];
-    [stackView addArrangedSubview:textAccentTag1];
-    
-    
-}
-
 
 @end

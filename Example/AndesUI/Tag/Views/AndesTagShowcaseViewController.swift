@@ -14,7 +14,7 @@ class AndesTagShowcaseViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
 
-    let controllers = [TagViewController(), TagObjCViewController()]
+    let controllers = [TagViewController(), TagObjCViewController(), TagChoiceObjCViewController()]
     var pageController: UIPageViewController!
 
     fileprivate func setupPageControl() {

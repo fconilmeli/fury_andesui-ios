@@ -1,3 +1,7 @@
+## (to be published)
+### 🚀 Features
+- New component AndesTagChoice | Authors: [@fconilmeli](https://github.com/fconilmeli)
+
 ## v3.9.1
 ### 🛠 Bug fixes
 - AndesMessage body `lineHeight` changed  | Authors: [@lelalesi](https://github.com/lelalesi)

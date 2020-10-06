@@ -9,7 +9,7 @@ import Foundation
 
 @objc public class AndesTagChoice: UIView {
 
-    internal var contentView: AndesTagView!
+    internal var contentView: AndesTagChoiceView!
 
     /// Text shown by the Simple Tag
     @objc public var text: String? {
@@ -92,7 +92,7 @@ import Foundation
         drawContentView(with: provideView())
     }
 
-    private func drawContentView(with newView: AndesTagView) {
+    private func drawContentView(with newView: AndesTagChoiceView) {
         self.contentView = newView
         self.contentView.delegate = self
         addSubview(contentView)
@@ -118,9 +118,9 @@ import Foundation
     }
 
     /// Should return a view depending on which Badge modifier is selected
-    private func provideView() -> AndesTagView {
+    private func provideView() -> AndesTagChoiceView {
         let config = AndesTagViewConfigFactory.provideInternalConfig(fromChoiceTag: self)
-        return AndesTagView(withConfig: config)
+        return AndesTagChoiceView(withConfig: config)
     }
 
     /// Check `shouldSelectTag` callback to change state if needed

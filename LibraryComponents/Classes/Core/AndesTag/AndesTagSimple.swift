@@ -9,7 +9,7 @@ import Foundation
 
 @objc public class AndesTagSimple: UIView {
 
-    internal var contentView: AndesTagView!
+    internal var contentView: AndesTagSimpleView!
 
     /// Text shown by the Simple Tag
     @objc public var text: String? {
@@ -89,7 +89,7 @@ import Foundation
         drawContentView(with: provideView())
     }
 
-    private func drawContentView(with newView: AndesTagView) {
+    private func drawContentView(with newView: AndesTagSimpleView) {
         self.contentView = newView
         self.contentView.delegate = self
         addSubview(contentView)
@@ -115,10 +115,10 @@ import Foundation
     }
 
     /// Should return a view depending on which Badge modifier is selected
-    private func provideView() -> AndesTagView {
+    private func provideView() -> AndesTagSimpleView {
         let config = AndesTagViewConfigFactory.provideInternalConfig(fromSimpleTag: self)
 
-        return AndesTagView(withConfig: config)
+        return AndesTagSimpleView(withConfig: config)
     }
 }
 

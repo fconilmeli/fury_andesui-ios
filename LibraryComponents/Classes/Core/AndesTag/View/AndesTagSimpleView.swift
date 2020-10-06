@@ -1,5 +1,5 @@
 //
-//  AndesTagView.swift
+//  AndesTagSimpleView.swift
 //  AndesUI
 //
 //  Created by Samuel Sainz on 5/28/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AndesTagView: AndesTagAbstractView {
+class AndesTagSimpleView: AndesTagAbstractView {
 
     @IBOutlet weak var leftContentWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftContentViewContainer: UIView!
@@ -44,11 +44,6 @@ class AndesTagView: AndesTagAbstractView {
             self.trailingConstraint.constant = config.horizontalPadding ?? 0
         }
         self.rightButtonWidthConstraint.constant = self.config.rightButtonWidth
-        if config.shouldAnimateRightContent {
-            UIView.animate(withDuration: 0.3) {
-                self.layoutIfNeeded()
-            }
-        }
     }
 
     func updateLeftContentView() {
